@@ -4,6 +4,7 @@ function triggerDetector () {
     if (accelerationStrength > triggerLevel && control.millis() - timeOfLastTrigger_ms > deadTime_ms) {
         triggerCounter += 1
         timeOfLastTrigger_ms = control.millis()
+        music.playSoundEffect(music.createSoundEffect(WaveShape.Square, 400, 600, 255, 0, 100, SoundExpressionEffect.Warble, InterpolationCurve.Linear), SoundExpressionPlayMode.InBackground)
     }
 }
 radio.onReceivedValue(function (name, value) {
@@ -12,6 +13,7 @@ radio.onReceivedValue(function (name, value) {
     serial.writeValue("triggerCounter", triggerCounter)
     // Here we store the received value of acceleration in a variable on our receiver
     accelerationStrength = value
+    triggerDetector()
     // This just flashes one of the LEDs to let us know that data is being received
     led.toggle(2, 2)
 })
