@@ -25,7 +25,7 @@ let triggerLevel = 0
 // Here you can set the 'triggerLevel' and 'deadTime_ms' variables
 triggerLevel = 1500
 deadTime_ms = 0
-radio.setGroup(1)
+radio.setGroup(0)
 // You don't need to change these variables - here we are just giving them values to start off
 accelerationStrength = 0
 timeOfLastTrigger_ms = -1000
